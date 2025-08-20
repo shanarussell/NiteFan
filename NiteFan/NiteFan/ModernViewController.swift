@@ -172,7 +172,7 @@ class ModernViewController: UIViewController {
     }
     
     // MARK: - Button Creation
-    private func createFanButton(number: Int) -> UIButton {
+    private func createFanButton(number: Int) -> UIView {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
         
@@ -264,13 +264,16 @@ class ModernViewController: UIViewController {
         
         hapticGenerator.impactOccurred()
         
+        // Get the container view (parent of the button)
+        let containerView = sender.superview
+        
         if activeButtons.contains(sender) {
             stopSound(named: soundName)
-            animateButtonDeactivation(sender)
+            animateButtonDeactivation(sender, container: containerView)
             activeButtons.remove(sender)
         } else {
             playSound(named: soundName)
-            animateButtonActivation(sender)
+            animateButtonActivation(sender, container: containerView)
             activeButtons.insert(sender)
         }
     }
@@ -298,7 +301,10 @@ class ModernViewController: UIViewController {
         stopAllSounds()
         
         // Deactivate all buttons
-        activeButtons.forEach { animateButtonDeactivation($0) }
+        activeButtons.forEach { button in
+            let container = button.superview
+            animateButtonDeactivation(button, container: container)
+        }
         activeButtons.removeAll()
         
         // Pulse animation for mute button
@@ -312,17 +318,19 @@ class ModernViewController: UIViewController {
     }
     
     // MARK: - Animations
-    private func animateButtonActivation(_ button: UIButton) {
+    private func animateButtonActivation(_ button: UIButton, container: UIView? = nil) {
+        let viewToAnimate = container ?? button
+        
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5) {
-            button.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-            button.alpha = 1.0
+            viewToAnimate.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+            viewToAnimate.alpha = 1.0
         }
         
         // Add glow effect
-        button.layer.shadowColor = UIColor.systemBlue.cgColor
-        button.layer.shadowRadius = 8
-        button.layer.shadowOpacity = 0.5
-        button.layer.shadowOffset = .zero
+        viewToAnimate.layer.shadowColor = UIColor.systemBlue.cgColor
+        viewToAnimate.layer.shadowRadius = 8
+        viewToAnimate.layer.shadowOpacity = 0.5
+        viewToAnimate.layer.shadowOffset = .zero
         
         // Update button appearance
         if var config = button.configuration {
@@ -331,14 +339,16 @@ class ModernViewController: UIViewController {
         }
     }
     
-    private func animateButtonDeactivation(_ button: UIButton) {
+    private func animateButtonDeactivation(_ button: UIButton, container: UIView? = nil) {
+        let viewToAnimate = container ?? button
+        
         UIView.animate(withDuration: 0.3) {
-            button.transform = .identity
-            button.alpha = 0.8
+            viewToAnimate.transform = .identity
+            viewToAnimate.alpha = 0.8
         }
         
         // Remove glow effect
-        button.layer.shadowOpacity = 0
+        viewToAnimate.layer.shadowOpacity = 0
         
         // Reset button appearance
         if var config = button.configuration {
