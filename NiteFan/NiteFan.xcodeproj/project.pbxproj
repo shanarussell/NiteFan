@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB4B90A52E55710C005AF04F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DB4B90A32E55710C005AF04F /* PrivacyInfo.xcprivacy */; };
+		DB4B90A62E55710C005AF04F /* UIColor+NiteFan.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4B90A42E55710C005AF04F /* UIColor+NiteFan.swift */; };
+		DB4B90A72E55710C005AF04F /* FanAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4B90A12E55710C005AF04F /* FanAnimationView.swift */; };
+		DB4B90A82E55710C005AF04F /* ModernViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4B90A22E55710C005AF04F /* ModernViewController.swift */; };
 		F8A3405C236731BF00AE38D2 /* fan3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8A3405B236731BF00AE38D2 /* fan3.mp3 */; };
 		F8A3405E2367324F00AE38D2 /* fan4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8A3405D2367324E00AE38D2 /* fan4.mp3 */; };
 		F8A34060236732DA00AE38D2 /* fan1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8A3405F236732DA00AE38D2 /* fan1.mp3 */; };
@@ -36,6 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB4B90A12E55710C005AF04F /* FanAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanAnimationView.swift; sourceTree = "<group>"; };
+		DB4B90A22E55710C005AF04F /* ModernViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewController.swift; sourceTree = "<group>"; };
+		DB4B90A32E55710C005AF04F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		DB4B90A42E55710C005AF04F /* UIColor+NiteFan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+NiteFan.swift"; sourceTree = "<group>"; };
 		F8A3405B236731BF00AE38D2 /* fan3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fan3.mp3; sourceTree = "<group>"; };
 		F8A3405D2367324E00AE38D2 /* fan4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fan4.mp3; sourceTree = "<group>"; };
 		F8A3405F236732DA00AE38D2 /* fan1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fan1.mp3; sourceTree = "<group>"; };
@@ -96,6 +104,10 @@
 		F8EAC7F2233EE3EA005C5DEC /* NiteFan */ = {
 			isa = PBXGroup;
 			children = (
+				DB4B90A12E55710C005AF04F /* FanAnimationView.swift */,
+				DB4B90A22E55710C005AF04F /* ModernViewController.swift */,
+				DB4B90A32E55710C005AF04F /* PrivacyInfo.xcprivacy */,
+				DB4B90A42E55710C005AF04F /* UIColor+NiteFan.swift */,
 				F8EAC7F3233EE3EA005C5DEC /* AppDelegate.swift */,
 				F8EAC7F5233EE3EA005C5DEC /* SceneDelegate.swift */,
 				F8EAC7F7233EE3EA005C5DEC /* ViewController.swift */,
@@ -199,6 +211,7 @@
 				F8EAC800233EE3EB005C5DEC /* LaunchScreen.storyboard in Resources */,
 				F8EAC828233EF9E1005C5DEC /* fan-graphic-7.png in Resources */,
 				F8EAC82A233EF9E1005C5DEC /* fan-graphic-2.png in Resources */,
+				DB4B90A52E55710C005AF04F /* PrivacyInfo.xcprivacy in Resources */,
 				F8EAC82B233EF9E1005C5DEC /* fan-graphic-5.png in Resources */,
 				F8EAC827233EF9E1005C5DEC /* fan-graphic-6.png in Resources */,
 				F8A340632367394900AE38D2 /* fan2.mp3 in Resources */,
@@ -229,6 +242,9 @@
 				F8EAC7F8233EE3EA005C5DEC /* ViewController.swift in Sources */,
 				F8EAC7F4233EE3EA005C5DEC /* AppDelegate.swift in Sources */,
 				F8EAC7F6233EE3EA005C5DEC /* SceneDelegate.swift in Sources */,
+				DB4B90A62E55710C005AF04F /* UIColor+NiteFan.swift in Sources */,
+				DB4B90A72E55710C005AF04F /* FanAnimationView.swift in Sources */,
+				DB4B90A82E55710C005AF04F /* ModernViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
