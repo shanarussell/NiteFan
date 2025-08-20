@@ -33,8 +33,10 @@ class FanAnimationView: UIView {
         fanImageView.tintColor = .white
         fanImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        // Use SF Symbol for fan
-        let config = UIImage.SymbolConfiguration(pointSize: 70, weight: .light)
+        // Use SF Symbol for fan - adaptive size for iPad
+        let isIPad = UIDevice.current.userInterfaceIdiom == .pad
+        let symbolSize: CGFloat = isIPad ? 100 : 70
+        let config = UIImage.SymbolConfiguration(pointSize: symbolSize, weight: .light)
         fanImageView.image = UIImage(systemName: "fan", withConfiguration: config)
         
         addSubview(fanImageView)

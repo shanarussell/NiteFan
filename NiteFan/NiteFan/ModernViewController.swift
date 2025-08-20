@@ -17,6 +17,15 @@ class ModernViewController: UIViewController {
     private var activeButtons: Set<UIButton> = []
     private var fanAnimationViews: [Int: FanAnimationView] = [:]
     
+    // MARK: - Size Class Properties
+    private var isCompactWidth: Bool {
+        return traitCollection.horizontalSizeClass == .compact
+    }
+    
+    private var isIPad: Bool {
+        return UIDevice.current.userInterfaceIdiom == .pad
+    }
+    
     // MARK: - UI Components
     private lazy var backgroundGradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
@@ -32,20 +41,20 @@ class ModernViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "NiteFan"
-        label.font = .systemFont(ofSize: 34, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Sweet dreams await"
-        label.font = .systemFont(ofSize: 17, weight: .medium)
         label.textColor = .systemGray
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
@@ -82,11 +91,21 @@ class ModernViewController: UIViewController {
         setupAudioSession()
         preloadAudioPlayers()
         prepareHaptics()
+        updateFontsForDevice()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         backgroundGradient.frame = view.bounds
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if previousTraitCollection?.horizontalSizeClass != traitCollection.horizontalSizeClass {
+            updateLayoutForSizeClass()
+            updateFontsForDevice()
+        }
     }
     
     deinit {
@@ -117,7 +136,7 @@ class ModernViewController: UIViewController {
         fanButtons.forEach { fanGridContainer.addSubview($0) }
         
         // Set up grid constraints with even distribution
-        let spacing: CGFloat = 12
+        let spacing: CGFloat = isIPad ? 24 : 12
         
         // Fan 1 - Top Left
         NSLayoutConstraint.activate([
@@ -172,36 +191,89 @@ class ModernViewController: UIViewController {
         ambientStackView.addArrangedSubview(clickButton)
         ambientStackView.addArrangedSubview(wobbleButton)
         
-        // Setup constraints
+        // Setup adaptive constraints
+        let margins = getAdaptiveMargins()
+        let maxWidth = getMaxContentWidth()
+        
         NSLayoutConstraint.activate([
             // Title
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: margins.top),
+            titleLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: margins.horizontal),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -margins.horizontal),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.widthAnchor.constraint(lessThanOrEqualToConstant: maxWidth),
             
             // Subtitle
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             
-            // Fan Grid Container
-            fanGridContainer.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 40),
+            // Fan Grid Container - Adaptive sizing
+            fanGridContainer.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: margins.vertical),
             fanGridContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            fanGridContainer.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40),
-            fanGridContainer.heightAnchor.constraint(equalTo: fanGridContainer.widthAnchor), // Square container
-            
-            // Ambient Stack
-            ambientStackView.topAnchor.constraint(equalTo: fanGridContainer.bottomAnchor, constant: 24),
-            ambientStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            ambientStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            ambientStackView.heightAnchor.constraint(equalToConstant: 80),
+        ])
+        
+        // Add width and height constraints based on device
+        if isIPad {
+            NSLayoutConstraint.activate([
+                fanGridContainer.widthAnchor.constraint(equalToConstant: min(600, view.bounds.width - margins.horizontal * 2)),
+                fanGridContainer.heightAnchor.constraint(equalTo: fanGridContainer.widthAnchor)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                fanGridContainer.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -margins.horizontal * 2),
+                fanGridContainer.heightAnchor.constraint(equalTo: fanGridContainer.widthAnchor)
+            ])
+        }
+        
+        NSLayoutConstraint.activate([
+            // Ambient Stack - Adaptive width
+            ambientStackView.topAnchor.constraint(equalTo: fanGridContainer.bottomAnchor, constant: margins.vertical),
+            ambientStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            ambientStackView.widthAnchor.constraint(lessThanOrEqualToConstant: maxWidth),
+            ambientStackView.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: margins.horizontal),
+            ambientStackView.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -margins.horizontal),
+            ambientStackView.heightAnchor.constraint(equalToConstant: isIPad ? 100 : 80),
             
             // Mute Button
-            muteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            muteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -margins.bottom),
             muteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            muteButton.widthAnchor.constraint(equalToConstant: 200),
-            muteButton.heightAnchor.constraint(equalToConstant: 56)
+            muteButton.widthAnchor.constraint(equalToConstant: isIPad ? 260 : 200),
+            muteButton.heightAnchor.constraint(equalToConstant: isIPad ? 64 : 56)
         ])
+    }
+    
+    // MARK: - Adaptive Layout Helpers
+    private func getAdaptiveMargins() -> (horizontal: CGFloat, vertical: CGFloat, top: CGFloat, bottom: CGFloat) {
+        if isIPad {
+            return (horizontal: 40, vertical: 40, top: 60, bottom: 40)
+        } else {
+            return (horizontal: 20, vertical: 24, top: 20, bottom: 20)
+        }
+    }
+    
+    private func getMaxContentWidth() -> CGFloat {
+        if isIPad {
+            return 700
+        } else {
+            return view.bounds.width - 40
+        }
+    }
+    
+    private func updateLayoutForSizeClass() {
+        // This method can be used for future layout updates when orientation changes
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+    }
+    
+    private func updateFontsForDevice() {
+        if isIPad {
+            titleLabel.font = .systemFont(ofSize: 48, weight: .bold)
+            subtitleLabel.font = .systemFont(ofSize: 22, weight: .medium)
+        } else {
+            titleLabel.font = .systemFont(ofSize: 34, weight: .bold)
+            subtitleLabel.font = .systemFont(ofSize: 17, weight: .medium)
+        }
     }
     
     // MARK: - Button Creation
@@ -213,14 +285,14 @@ class ModernViewController: UIViewController {
         let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialDark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.translatesAutoresizingMaskIntoConstraints = false
-        blurView.layer.cornerRadius = 16
+        blurView.layer.cornerRadius = isIPad ? 24 : 16
         blurView.layer.masksToBounds = true
         
         // Create vertical stack for fan animation and text
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.spacing = 8
+        stackView.spacing = isIPad ? 12 : 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.isUserInteractionEnabled = false
         
@@ -232,8 +304,9 @@ class ModernViewController: UIViewController {
         // Create label for fan text
         let label = UILabel()
         label.text = "Fan \(number)"
-        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.font = .systemFont(ofSize: isIPad ? 20 : 16, weight: .semibold)
         label.textColor = .white
+        label.adjustsFontForContentSizeCategory = true
         
         stackView.addArrangedSubview(fanAnimationView)
         stackView.addArrangedSubview(label)
@@ -263,9 +336,9 @@ class ModernViewController: UIViewController {
             stackView.centerXAnchor.constraint(equalTo: container.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
             
-            // Fan animation size
-            fanAnimationView.widthAnchor.constraint(equalToConstant: 80),
-            fanAnimationView.heightAnchor.constraint(equalToConstant: 80),
+            // Fan animation size - adaptive for iPad
+            fanAnimationView.widthAnchor.constraint(equalToConstant: isIPad ? 120 : 80),
+            fanAnimationView.heightAnchor.constraint(equalToConstant: isIPad ? 120 : 80),
             
             // Button overlay fills container
             button.topAnchor.constraint(equalTo: container.topAnchor),
@@ -283,10 +356,16 @@ class ModernViewController: UIViewController {
         
         var config = UIButton.Configuration.filled()
         config.image = UIImage(systemName: symbol)
-        config.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 20, weight: .medium)
+        let symbolSize: CGFloat = isIPad ? 28 : 20
+        config.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: symbolSize, weight: .medium)
         config.imagePlacement = .top
-        config.imagePadding = 4
+        config.imagePadding = isIPad ? 8 : 4
         config.title = title
+        config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = UIFont.systemFont(ofSize: self.isIPad ? 18 : 14, weight: .medium)
+            return outgoing
+        }
         config.baseBackgroundColor = UIColor.systemIndigo.withAlphaComponent(0.3)
         config.baseForegroundColor = .white
         config.cornerStyle = .large
@@ -304,10 +383,16 @@ class ModernViewController: UIViewController {
         
         var config = UIButton.Configuration.filled()
         config.image = UIImage(systemName: symbol)
-        config.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 20, weight: .semibold)
+        let symbolSize: CGFloat = isIPad ? 26 : 20
+        config.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: symbolSize, weight: .semibold)
         config.imagePlacement = .leading
-        config.imagePadding = 8
+        config.imagePadding = isIPad ? 12 : 8
         config.title = title
+        config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = UIFont.systemFont(ofSize: self.isIPad ? 18 : 16, weight: .semibold)
+            return outgoing
+        }
         config.baseBackgroundColor = color.withAlphaComponent(0.2)
         config.baseForegroundColor = color
         config.cornerStyle = .large
