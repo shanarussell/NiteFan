@@ -66,21 +66,22 @@ class FanAnimationView: UIView {
         rotationAnimation?.repeatCount = .infinity
         rotationAnimation?.isRemovedOnCompletion = false
         
-        // Add animation with ease-in-out timing
+        // Add animation with smooth timing
         CATransaction.begin()
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: .linear))
         fanImageView.layer.add(rotationAnimation!, forKey: "rotation")
         CATransaction.commit()
         
-        // Animate shadow appearance
+        // Animate tint color to show it's active
         UIView.animate(withDuration: 0.5) {
-            self.layer.shadowRadius = 15
-            self.layer.shadowOpacity = 0.3
+            self.fanImageView.tintColor = .systemBlue
+            self.layer.shadowRadius = 20
+            self.layer.shadowOpacity = 0.4
         }
         
-        // Scale up slightly
+        // Scale up slightly with spring animation
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5) {
-            self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            self.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
         }
     }
     
@@ -91,8 +92,9 @@ class FanAnimationView: UIView {
         // Remove rotation animation
         fanImageView.layer.removeAnimation(forKey: "rotation")
         
-        // Animate shadow disappearance
+        // Animate back to original appearance
         UIView.animate(withDuration: 0.5) {
+            self.fanImageView.tintColor = .nfPrimaryText
             self.layer.shadowRadius = 0
             self.layer.shadowOpacity = 0
         }

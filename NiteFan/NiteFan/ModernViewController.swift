@@ -15,6 +15,7 @@ class ModernViewController: UIViewController {
     private let selectionGenerator = UISelectionFeedbackGenerator()
     private var audioPlayers: [String: AVAudioPlayer] = [:]
     private var activeButtons: Set<UIButton> = []
+    private var fanAnimationViews: [Int: FanAnimationView] = [:]
     
     // MARK: - UI Components
     private lazy var backgroundGradient: CAGradientLayer = {
@@ -176,10 +177,6 @@ class ModernViewController: UIViewController {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
         
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.tag = number
-        
         // Glass morphism effect
         let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialDark)
         let blurView = UIVisualEffectView(effect: blurEffect)
@@ -187,28 +184,58 @@ class ModernViewController: UIViewController {
         blurView.layer.cornerRadius = 16
         blurView.layer.masksToBounds = true
         
-        container.addSubview(blurView)
-        container.addSubview(button)
+        // Create horizontal stack for fan animation and text
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.spacing = 12
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.isUserInteractionEnabled = false
         
-        // Configure button
-        var config = UIButton.Configuration.plain()
-        config.image = UIImage(systemName: "fan")
-        config.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 32, weight: .medium)
-        config.imagePlacement = .leading
-        config.imagePadding = 12
-        config.title = "Fan \(number)"
-        config.baseForegroundColor = .white
-        button.configuration = config
+        // Create fan animation view
+        let fanAnimationView = FanAnimationView()
+        fanAnimationView.translatesAutoresizingMaskIntoConstraints = false
+        fanAnimationViews[number] = fanAnimationView
+        
+        // Create label for fan text
+        let label = UILabel()
+        label.text = "Fan \(number)"
+        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.textColor = .white
+        
+        stackView.addArrangedSubview(fanAnimationView)
+        stackView.addArrangedSubview(label)
+        
+        // Create invisible button overlay
+        let button = UIButton(type: .custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tag = number
+        button.backgroundColor = .clear
+        
+        // Add subviews
+        container.addSubview(blurView)
+        container.addSubview(stackView)
+        container.addSubview(button)
         
         // Add action
         button.addTarget(self, action: #selector(fanButtonTapped(_:)), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
+            // Blur view fills container
             blurView.topAnchor.constraint(equalTo: container.topAnchor),
             blurView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
             blurView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
             blurView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
             
+            // Stack view centered in container
+            stackView.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            
+            // Fan animation size
+            fanAnimationView.widthAnchor.constraint(equalToConstant: 60),
+            fanAnimationView.heightAnchor.constraint(equalToConstant: 60),
+            
+            // Button overlay fills container
             button.topAnchor.constraint(equalTo: container.topAnchor),
             button.leadingAnchor.constraint(equalTo: container.leadingAnchor),
             button.trailingAnchor.constraint(equalTo: container.trailingAnchor),
@@ -267,12 +294,19 @@ class ModernViewController: UIViewController {
         // Get the container view (parent of the button)
         let containerView = sender.superview
         
+        // Get the fan animation view
+        let fanAnimationView = fanAnimationViews[fanNumber]
+        
         if activeButtons.contains(sender) {
+            // Stop sound and animation
             stopSound(named: soundName)
+            fanAnimationView?.stopAnimating()
             animateButtonDeactivation(sender, container: containerView)
             activeButtons.remove(sender)
         } else {
+            // Start sound and animation
             playSound(named: soundName)
+            fanAnimationView?.startAnimating(speed: Double(fanNumber) * 0.5 + 0.5) // Vary speed by fan number
             animateButtonActivation(sender, container: containerView)
             activeButtons.insert(sender)
         }
@@ -299,6 +333,9 @@ class ModernViewController: UIViewController {
         notificationGenerator.notificationOccurred(.warning)
         
         stopAllSounds()
+        
+        // Stop all fan animations
+        fanAnimationViews.values.forEach { $0.stopAnimating() }
         
         // Deactivate all buttons
         activeButtons.forEach { button in
