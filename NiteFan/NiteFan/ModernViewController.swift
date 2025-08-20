@@ -516,14 +516,28 @@ class ModernViewController: UIViewController {
     }
     
     private func addFloatingStars() {
-        for _ in 0..<20 {
+        // Add more stars for better visibility
+        for _ in 0..<35 {
             let star = UIView()
             star.backgroundColor = .white
-            star.alpha = CGFloat.random(in: 0.1...0.3)
+            
+            // Make stars brighter and more varied
+            let initialAlpha = CGFloat.random(in: 0.3...0.7)
+            star.alpha = initialAlpha
             star.tag = 999 // Tag for easy removal
-            let size = CGFloat.random(in: 1...3)
+            
+            // Larger star sizes
+            let size = CGFloat.random(in: 2...6)
             star.frame = CGRect(x: 0, y: 0, width: size, height: size)
             star.layer.cornerRadius = size / 2
+            
+            // Add subtle glow effect to larger stars
+            if size > 4 {
+                star.layer.shadowColor = UIColor.white.cgColor
+                star.layer.shadowRadius = 3
+                star.layer.shadowOpacity = 0.8
+                star.layer.shadowOffset = .zero
+            }
             
             let x = CGFloat.random(in: 0...view.bounds.width)
             let y = CGFloat.random(in: 0...view.bounds.height)
@@ -531,12 +545,17 @@ class ModernViewController: UIViewController {
             
             view.insertSubview(star, at: 1)
             
-            // Subtle twinkling animation
-            UIView.animate(withDuration: Double.random(in: 2...5),
+            // More dramatic twinkling animation
+            let duration = Double.random(in: 1.5...3.5)
+            let targetAlpha = size > 4 ? CGFloat.random(in: 0.8...1.0) : CGFloat.random(in: 0.5...0.9)
+            
+            UIView.animate(withDuration: duration,
                           delay: Double.random(in: 0...2),
-                          options: [.autoreverse, .repeat],
+                          options: [.autoreverse, .repeat, .curveEaseInOut],
                           animations: {
-                star.alpha = CGFloat.random(in: 0.3...0.6)
+                star.alpha = targetAlpha
+                // Add subtle scale animation for extra twinkle
+                star.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             })
         }
     }
