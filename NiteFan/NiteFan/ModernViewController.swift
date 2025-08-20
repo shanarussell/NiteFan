@@ -116,40 +116,39 @@ class ModernViewController: UIViewController {
         // Add all buttons to container first
         fanButtons.forEach { fanGridContainer.addSubview($0) }
         
-        // Set up grid constraints
+        // Set up grid constraints with even distribution
         let spacing: CGFloat = 12
-        let buttonSize = (UIScreen.main.bounds.width - 60 - spacing) / 2 // Account for margins and spacing
         
         // Fan 1 - Top Left
         NSLayoutConstraint.activate([
             fanButtons[0].leadingAnchor.constraint(equalTo: fanGridContainer.leadingAnchor),
             fanButtons[0].topAnchor.constraint(equalTo: fanGridContainer.topAnchor),
-            fanButtons[0].widthAnchor.constraint(equalToConstant: buttonSize),
-            fanButtons[0].heightAnchor.constraint(equalToConstant: buttonSize)
+            fanButtons[0].widthAnchor.constraint(equalTo: fanGridContainer.widthAnchor, multiplier: 0.5, constant: -spacing/2),
+            fanButtons[0].heightAnchor.constraint(equalTo: fanButtons[0].widthAnchor)
         ])
         
         // Fan 2 - Top Right
         NSLayoutConstraint.activate([
-            fanButtons[1].leadingAnchor.constraint(equalTo: fanButtons[0].trailingAnchor, constant: spacing),
+            fanButtons[1].trailingAnchor.constraint(equalTo: fanGridContainer.trailingAnchor),
             fanButtons[1].topAnchor.constraint(equalTo: fanGridContainer.topAnchor),
-            fanButtons[1].widthAnchor.constraint(equalToConstant: buttonSize),
-            fanButtons[1].heightAnchor.constraint(equalToConstant: buttonSize)
+            fanButtons[1].widthAnchor.constraint(equalTo: fanButtons[0].widthAnchor),
+            fanButtons[1].heightAnchor.constraint(equalTo: fanButtons[1].widthAnchor)
         ])
         
         // Fan 3 - Bottom Left
         NSLayoutConstraint.activate([
             fanButtons[2].leadingAnchor.constraint(equalTo: fanGridContainer.leadingAnchor),
-            fanButtons[2].topAnchor.constraint(equalTo: fanButtons[0].bottomAnchor, constant: spacing),
-            fanButtons[2].widthAnchor.constraint(equalToConstant: buttonSize),
-            fanButtons[2].heightAnchor.constraint(equalToConstant: buttonSize)
+            fanButtons[2].bottomAnchor.constraint(equalTo: fanGridContainer.bottomAnchor),
+            fanButtons[2].widthAnchor.constraint(equalTo: fanButtons[0].widthAnchor),
+            fanButtons[2].heightAnchor.constraint(equalTo: fanButtons[2].widthAnchor)
         ])
         
         // Fan 4 - Bottom Right
         NSLayoutConstraint.activate([
-            fanButtons[3].leadingAnchor.constraint(equalTo: fanButtons[2].trailingAnchor, constant: spacing),
-            fanButtons[3].topAnchor.constraint(equalTo: fanButtons[1].bottomAnchor, constant: spacing),
-            fanButtons[3].widthAnchor.constraint(equalToConstant: buttonSize),
-            fanButtons[3].heightAnchor.constraint(equalToConstant: buttonSize)
+            fanButtons[3].trailingAnchor.constraint(equalTo: fanGridContainer.trailingAnchor),
+            fanButtons[3].bottomAnchor.constraint(equalTo: fanGridContainer.bottomAnchor),
+            fanButtons[3].widthAnchor.constraint(equalTo: fanButtons[0].widthAnchor),
+            fanButtons[3].heightAnchor.constraint(equalTo: fanButtons[3].widthAnchor)
         ])
         
         // Create ambient sound buttons
