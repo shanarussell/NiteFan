@@ -49,13 +49,10 @@ class ModernViewController: UIViewController {
         return label
     }()
     
-    private lazy var fanStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 16
-        stack.distribution = .fillEqually
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
+    private lazy var fanGridContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     private lazy var ambientStackView: UIStackView = {
@@ -109,15 +106,51 @@ class ModernViewController: UIViewController {
         // Add main components
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
-        view.addSubview(fanStackView)
+        view.addSubview(fanGridContainer)
         view.addSubview(ambientStackView)
         view.addSubview(muteButton)
         
-        // Create fan buttons
-        for i in 1...4 {
-            let fanButton = createFanButton(number: i)
-            fanStackView.addArrangedSubview(fanButton)
-        }
+        // Create fan buttons in 2x2 grid
+        let fanButtons = (1...4).map { createFanButton(number: $0) }
+        
+        // Add all buttons to container first
+        fanButtons.forEach { fanGridContainer.addSubview($0) }
+        
+        // Set up grid constraints
+        let spacing: CGFloat = 12
+        let buttonSize = (UIScreen.main.bounds.width - 60 - spacing) / 2 // Account for margins and spacing
+        
+        // Fan 1 - Top Left
+        NSLayoutConstraint.activate([
+            fanButtons[0].leadingAnchor.constraint(equalTo: fanGridContainer.leadingAnchor),
+            fanButtons[0].topAnchor.constraint(equalTo: fanGridContainer.topAnchor),
+            fanButtons[0].widthAnchor.constraint(equalToConstant: buttonSize),
+            fanButtons[0].heightAnchor.constraint(equalToConstant: buttonSize)
+        ])
+        
+        // Fan 2 - Top Right
+        NSLayoutConstraint.activate([
+            fanButtons[1].leadingAnchor.constraint(equalTo: fanButtons[0].trailingAnchor, constant: spacing),
+            fanButtons[1].topAnchor.constraint(equalTo: fanGridContainer.topAnchor),
+            fanButtons[1].widthAnchor.constraint(equalToConstant: buttonSize),
+            fanButtons[1].heightAnchor.constraint(equalToConstant: buttonSize)
+        ])
+        
+        // Fan 3 - Bottom Left
+        NSLayoutConstraint.activate([
+            fanButtons[2].leadingAnchor.constraint(equalTo: fanGridContainer.leadingAnchor),
+            fanButtons[2].topAnchor.constraint(equalTo: fanButtons[0].bottomAnchor, constant: spacing),
+            fanButtons[2].widthAnchor.constraint(equalToConstant: buttonSize),
+            fanButtons[2].heightAnchor.constraint(equalToConstant: buttonSize)
+        ])
+        
+        // Fan 4 - Bottom Right
+        NSLayoutConstraint.activate([
+            fanButtons[3].leadingAnchor.constraint(equalTo: fanButtons[2].trailingAnchor, constant: spacing),
+            fanButtons[3].topAnchor.constraint(equalTo: fanButtons[1].bottomAnchor, constant: spacing),
+            fanButtons[3].widthAnchor.constraint(equalToConstant: buttonSize),
+            fanButtons[3].heightAnchor.constraint(equalToConstant: buttonSize)
+        ])
         
         // Create ambient sound buttons
         let rainButton = createAmbientButton(
@@ -152,14 +185,14 @@ class ModernViewController: UIViewController {
             subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             
-            // Fan Stack
-            fanStackView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 40),
-            fanStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            fanStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            fanStackView.heightAnchor.constraint(equalToConstant: 320),
+            // Fan Grid Container
+            fanGridContainer.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 40),
+            fanGridContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            fanGridContainer.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40),
+            fanGridContainer.heightAnchor.constraint(equalTo: fanGridContainer.widthAnchor), // Square container
             
             // Ambient Stack
-            ambientStackView.topAnchor.constraint(equalTo: fanStackView.bottomAnchor, constant: 24),
+            ambientStackView.topAnchor.constraint(equalTo: fanGridContainer.bottomAnchor, constant: 24),
             ambientStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             ambientStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             ambientStackView.heightAnchor.constraint(equalToConstant: 80),
@@ -184,11 +217,11 @@ class ModernViewController: UIViewController {
         blurView.layer.cornerRadius = 16
         blurView.layer.masksToBounds = true
         
-        // Create horizontal stack for fan animation and text
+        // Create vertical stack for fan animation and text
         let stackView = UIStackView()
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.spacing = 12
+        stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.isUserInteractionEnabled = false
         
@@ -200,7 +233,7 @@ class ModernViewController: UIViewController {
         // Create label for fan text
         let label = UILabel()
         label.text = "Fan \(number)"
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.textColor = .white
         
         stackView.addArrangedSubview(fanAnimationView)
@@ -232,8 +265,8 @@ class ModernViewController: UIViewController {
             stackView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
             
             // Fan animation size
-            fanAnimationView.widthAnchor.constraint(equalToConstant: 60),
-            fanAnimationView.heightAnchor.constraint(equalToConstant: 60),
+            fanAnimationView.widthAnchor.constraint(equalToConstant: 80),
+            fanAnimationView.heightAnchor.constraint(equalToConstant: 80),
             
             // Button overlay fills container
             button.topAnchor.constraint(equalTo: container.topAnchor),

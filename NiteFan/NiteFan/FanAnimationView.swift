@@ -34,7 +34,7 @@ class FanAnimationView: UIView {
         fanImageView.translatesAutoresizingMaskIntoConstraints = false
         
         // Use SF Symbol for fan
-        let config = UIImage.SymbolConfiguration(pointSize: 60, weight: .light)
+        let config = UIImage.SymbolConfiguration(pointSize: 70, weight: .light)
         fanImageView.image = UIImage(systemName: "fan", withConfiguration: config)
         
         addSubview(fanImageView)
