@@ -34,9 +34,19 @@ The app will be available on the App Store (coming soon).
    ```
 3. Build and run on your device or simulator
 
-## Recent Updates (v1.53)
+## Recent Updates (v2.0)
 
-### Critical Fixes
+### 🎨 Modern iOS UI Redesign
+- ✨ **Completely redesigned interface** with iOS 17+ design language
+- 🌓 **Full dark/light mode support** with dynamic colors
+- 📱 **SF Symbols** replacing all PNG icons for crisp, scalable graphics
+- 🎭 **Glass morphism effects** with blur and transparency
+- 📳 **Haptic feedback** for all interactions
+- 🎬 **Smooth animations** including fade in/out for audio
+- ⭐ **Animated starfield background** with twinkling stars
+- 🌀 **Custom fan animations** using Core Animation
+
+### Critical Fixes (v1.53)
 - ✅ Updated to iOS 15.0 minimum deployment target for modern iOS support
 - ✅ Added Privacy Manifest (PrivacyInfo.xcprivacy) for App Store compliance
 - ✅ Fixed memory leaks in audio player management
@@ -44,11 +54,15 @@ The app will be available on the App Store (coming soon).
 - ✅ Added proper error handling with user feedback
 
 ### Code Improvements
+- Programmatic UI with ModernViewController
+- Dynamic color system for automatic dark/light mode switching
+- Haptic feedback generator for tactile responses
+- Smooth audio fade transitions
+- Custom FanAnimationView with Core Animation
 - Preload audio players once instead of recreating them
 - Centralized audio management with dictionary storage
 - Proper cleanup in deinit to prevent memory leaks
 - Modern Swift patterns with MARK comments for organization
-- Improved constraint setup using NSLayoutConstraint.activate
 
 ## Technical Details
 
