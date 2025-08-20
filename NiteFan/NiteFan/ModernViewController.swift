@@ -20,7 +20,11 @@ class ModernViewController: UIViewController {
     // MARK: - UI Components
     private lazy var backgroundGradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
-        gradient.colors = UIColor.nfGradientColors(for: traitCollection)
+        gradient.colors = [
+            UIColor(red: 0.05, green: 0.05, blue: 0.15, alpha: 1.0).cgColor,
+            UIColor(red: 0.1, green: 0.1, blue: 0.25, alpha: 1.0).cgColor,
+            UIColor(red: 0.05, green: 0.05, blue: 0.2, alpha: 1.0).cgColor
+        ]
         gradient.locations = [0.0, 0.5, 1.0]
         return gradient
     }()
@@ -29,7 +33,7 @@ class ModernViewController: UIViewController {
         let label = UILabel()
         label.text = "NiteFan"
         label.font = .systemFont(ofSize: 34, weight: .bold)
-        label.textColor = .nfPrimaryText
+        label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -39,7 +43,7 @@ class ModernViewController: UIViewController {
         let label = UILabel()
         label.text = "Sweet dreams await"
         label.font = .systemFont(ofSize: 17, weight: .medium)
-        label.textColor = .nfSecondaryText
+        label.textColor = .systemGray
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -93,41 +97,12 @@ class ModernViewController: UIViewController {
         audioPlayers.removeAll()
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-            updateAppearance()
-        }
-    }
-    
     // MARK: - Setup Methods
     private func setupGradientBackground() {
         view.layer.insertSublayer(backgroundGradient, at: 0)
         
-        // Add subtle animated stars for dark mode only
-        if traitCollection.userInterfaceStyle == .dark {
-            addFloatingStars()
-        }
-    }
-    
-    private func updateAppearance() {
-        // Update gradient colors
-        backgroundGradient.colors = UIColor.nfGradientColors(for: traitCollection)
-        
-        // Update blur effects for all fan buttons
-        fanStackView.arrangedSubviews.forEach { view in
-            if let blurView = view.subviews.first(where: { $0 is UIVisualEffectView }) as? UIVisualEffectView {
-                let blurStyle: UIBlurEffect.Style = traitCollection.userInterfaceStyle == .dark ? .systemUltraThinMaterialDark : .systemUltraThinMaterialLight
-                blurView.effect = UIBlurEffect(style: blurStyle)
-            }
-        }
-        
-        // Remove or add stars based on mode
-        view.subviews.filter { $0.tag == 999 }.forEach { $0.removeFromSuperview() }
-        if traitCollection.userInterfaceStyle == .dark {
-            addFloatingStars()
-        }
+        // Always add animated stars
+        addFloatingStars()
     }
     
     private func setupUI() {
@@ -202,14 +177,12 @@ class ModernViewController: UIViewController {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
         
-        // Glass morphism effect - adapts to light/dark mode
-        let blurStyle: UIBlurEffect.Style = traitCollection.userInterfaceStyle == .dark ? .systemUltraThinMaterialDark : .systemUltraThinMaterialLight
-        let blurEffect = UIBlurEffect(style: blurStyle)
+        // Glass morphism effect with dark blur
+        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialDark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.translatesAutoresizingMaskIntoConstraints = false
         blurView.layer.cornerRadius = 16
         blurView.layer.masksToBounds = true
-        blurView.backgroundColor = UIColor.nfButtonBackground.withAlphaComponent(0.3)
         
         // Create horizontal stack for fan animation and text
         let stackView = UIStackView()
@@ -228,7 +201,7 @@ class ModernViewController: UIViewController {
         let label = UILabel()
         label.text = "Fan \(number)"
         label.font = .systemFont(ofSize: 18, weight: .medium)
-        label.textColor = .nfPrimaryText
+        label.textColor = .white
         
         stackView.addArrangedSubview(fanAnimationView)
         stackView.addArrangedSubview(label)
@@ -282,8 +255,8 @@ class ModernViewController: UIViewController {
         config.imagePlacement = .top
         config.imagePadding = 4
         config.title = title
-        config.baseBackgroundColor = UIColor.nfButtonBackground
-        config.baseForegroundColor = .nfPrimaryText
+        config.baseBackgroundColor = UIColor.systemIndigo.withAlphaComponent(0.3)
+        config.baseForegroundColor = .white
         config.cornerStyle = .large
         
         button.configuration = config
@@ -391,14 +364,14 @@ class ModernViewController: UIViewController {
         }
         
         // Add glow effect
-        viewToAnimate.layer.shadowColor = UIColor.nfAccent.cgColor
+        viewToAnimate.layer.shadowColor = UIColor.systemBlue.cgColor
         viewToAnimate.layer.shadowRadius = 8
         viewToAnimate.layer.shadowOpacity = 0.5
         viewToAnimate.layer.shadowOffset = .zero
         
         // Update button appearance
         if var config = button.configuration {
-            config.baseBackgroundColor = UIColor.nfActiveButton
+            config.baseBackgroundColor = UIColor.systemBlue.withAlphaComponent(0.4)
             button.configuration = config
         }
     }
@@ -417,7 +390,7 @@ class ModernViewController: UIViewController {
         // Reset button appearance
         if var config = button.configuration {
             if button.accessibilityIdentifier != nil {
-                config.baseBackgroundColor = UIColor.nfButtonBackground
+                config.baseBackgroundColor = UIColor.systemIndigo.withAlphaComponent(0.3)
             } else {
                 config.baseBackgroundColor = nil
             }

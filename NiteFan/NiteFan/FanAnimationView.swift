@@ -30,7 +30,7 @@ class FanAnimationView: UIView {
         // Create fan image view
         fanImageView = UIImageView()
         fanImageView.contentMode = .scaleAspectFit
-        fanImageView.tintColor = .nfPrimaryText
+        fanImageView.tintColor = .white
         fanImageView.translatesAutoresizingMaskIntoConstraints = false
         
         // Use SF Symbol for fan
@@ -47,7 +47,7 @@ class FanAnimationView: UIView {
         ])
         
         // Add subtle shadow
-        layer.shadowColor = UIColor.nfAccent.cgColor
+        layer.shadowColor = UIColor.systemBlue.cgColor
         layer.shadowRadius = 0
         layer.shadowOpacity = 0
         layer.shadowOffset = .zero
@@ -94,7 +94,7 @@ class FanAnimationView: UIView {
         
         // Animate back to original appearance
         UIView.animate(withDuration: 0.5) {
-            self.fanImageView.tintColor = .nfPrimaryText
+            self.fanImageView.tintColor = .white
             self.layer.shadowRadius = 0
             self.layer.shadowOpacity = 0
         }
@@ -112,13 +112,4 @@ class FanAnimationView: UIView {
         }
     }
     
-    // MARK: - Appearance Updates
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-            fanImageView.tintColor = .nfPrimaryText
-            layer.shadowColor = UIColor.nfAccent.cgColor
-        }
-    }
 }
