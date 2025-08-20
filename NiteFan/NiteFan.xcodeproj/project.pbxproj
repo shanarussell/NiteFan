@@ -1,0 +1,435 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F8A3405C236731BF00AE38D2 /* fan3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8A3405B236731BF00AE38D2 /* fan3.mp3 */; };
+		F8A3405E2367324F00AE38D2 /* fan4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8A3405D2367324E00AE38D2 /* fan4.mp3 */; };
+		F8A34060236732DA00AE38D2 /* fan1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8A3405F236732DA00AE38D2 /* fan1.mp3 */; };
+		F8A340632367394900AE38D2 /* fan2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8A340622367394800AE38D2 /* fan2.mp3 */; };
+		F8EAC7F4233EE3EA005C5DEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC7F3233EE3EA005C5DEC /* AppDelegate.swift */; };
+		F8EAC7F6233EE3EA005C5DEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC7F5233EE3EA005C5DEC /* SceneDelegate.swift */; };
+		F8EAC7F8233EE3EA005C5DEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC7F7233EE3EA005C5DEC /* ViewController.swift */; };
+		F8EAC7FB233EE3EA005C5DEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC7F9233EE3EA005C5DEC /* Main.storyboard */; };
+		F8EAC7FD233EE3EB005C5DEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC7FC233EE3EB005C5DEC /* Assets.xcassets */; };
+		F8EAC800233EE3EB005C5DEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC7FE233EE3EB005C5DEC /* LaunchScreen.storyboard */; };
+		F8EAC813233EE47E005C5DEC /* 167897__hansende__oscillating-fan-3-hours-of-white-noise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC80C233EE47E005C5DEC /* 167897__hansende__oscillating-fan-3-hours-of-white-noise.mp3 */; };
+		F8EAC825233EF9E1005C5DEC /* fan-graphic-4.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC81E233EF9E1005C5DEC /* fan-graphic-4.png */; };
+		F8EAC826233EF9E1005C5DEC /* fan-graphic-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC81F233EF9E1005C5DEC /* fan-graphic-1.png */; };
+		F8EAC827233EF9E1005C5DEC /* fan-graphic-6.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC820233EF9E1005C5DEC /* fan-graphic-6.png */; };
+		F8EAC828233EF9E1005C5DEC /* fan-graphic-7.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC821233EF9E1005C5DEC /* fan-graphic-7.png */; };
+		F8EAC829233EF9E1005C5DEC /* fan-graphic-3.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC822233EF9E1005C5DEC /* fan-graphic-3.png */; };
+		F8EAC82A233EF9E1005C5DEC /* fan-graphic-2.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC823233EF9E1005C5DEC /* fan-graphic-2.png */; };
+		F8EAC82B233EF9E1005C5DEC /* fan-graphic-5.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC824233EF9E1005C5DEC /* fan-graphic-5.png */; };
+		F8EAC836233F05A2005C5DEC /* green-wobble.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC832233F05A2005C5DEC /* green-wobble.png */; };
+		F8EAC837233F05A2005C5DEC /* green-rain.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC833233F05A2005C5DEC /* green-rain.png */; };
+		F8EAC838233F05A2005C5DEC /* green-mute.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC834233F05A2005C5DEC /* green-mute.png */; };
+		F8EAC839233F05A2005C5DEC /* green-click.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC835233F05A2005C5DEC /* green-click.png */; };
+		F8EAC83B233F0B6A005C5DEC /* click.m4r in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC83A233F0B6A005C5DEC /* click.m4r */; };
+		F8EAC83D233F0E1F005C5DEC /* rain.m4r in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC83C233F0E1F005C5DEC /* rain.m4r */; };
+		F8EAC83F233F0E68005C5DEC /* wobble.m4r in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC83E233F0E68005C5DEC /* wobble.m4r */; };
+		F8EAC841233F0FCF005C5DEC /* stars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC840233F0FCF005C5DEC /* stars.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F8A3405B236731BF00AE38D2 /* fan3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fan3.mp3; sourceTree = "<group>"; };
+		F8A3405D2367324E00AE38D2 /* fan4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fan4.mp3; sourceTree = "<group>"; };
+		F8A3405F236732DA00AE38D2 /* fan1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fan1.mp3; sourceTree = "<group>"; };
+		F8A340622367394800AE38D2 /* fan2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fan2.mp3; sourceTree = "<group>"; };
+		F8EAC7F0233EE3EA005C5DEC /* NiteFan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NiteFan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8EAC7F3233EE3EA005C5DEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F8EAC7F5233EE3EA005C5DEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F8EAC7F7233EE3EA005C5DEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8EAC7FA233EE3EA005C5DEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F8EAC7FC233EE3EB005C5DEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8EAC7FF233EE3EB005C5DEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F8EAC801233EE3EB005C5DEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8EAC80C233EE47E005C5DEC /* 167897__hansende__oscillating-fan-3-hours-of-white-noise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "167897__hansende__oscillating-fan-3-hours-of-white-noise.mp3"; path = "../../../../fan sounds/167897__hansende__oscillating-fan-3-hours-of-white-noise.mp3"; sourceTree = "<group>"; };
+		F8EAC81E233EF9E1005C5DEC /* fan-graphic-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fan-graphic-4.png"; sourceTree = "<group>"; };
+		F8EAC81F233EF9E1005C5DEC /* fan-graphic-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fan-graphic-1.png"; sourceTree = "<group>"; };
+		F8EAC820233EF9E1005C5DEC /* fan-graphic-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fan-graphic-6.png"; sourceTree = "<group>"; };
+		F8EAC821233EF9E1005C5DEC /* fan-graphic-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fan-graphic-7.png"; sourceTree = "<group>"; };
+		F8EAC822233EF9E1005C5DEC /* fan-graphic-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fan-graphic-3.png"; sourceTree = "<group>"; };
+		F8EAC823233EF9E1005C5DEC /* fan-graphic-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fan-graphic-2.png"; sourceTree = "<group>"; };
+		F8EAC824233EF9E1005C5DEC /* fan-graphic-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fan-graphic-5.png"; sourceTree = "<group>"; };
+		F8EAC832233F05A2005C5DEC /* green-wobble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-wobble.png"; sourceTree = "<group>"; };
+		F8EAC833233F05A2005C5DEC /* green-rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-rain.png"; sourceTree = "<group>"; };
+		F8EAC834233F05A2005C5DEC /* green-mute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-mute.png"; sourceTree = "<group>"; };
+		F8EAC835233F05A2005C5DEC /* green-click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-click.png"; sourceTree = "<group>"; };
+		F8EAC83A233F0B6A005C5DEC /* click.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = click.m4r; sourceTree = "<group>"; };
+		F8EAC83C233F0E1F005C5DEC /* rain.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = rain.m4r; sourceTree = "<group>"; };
+		F8EAC83E233F0E68005C5DEC /* wobble.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = wobble.m4r; sourceTree = "<group>"; };
+		F8EAC840233F0FCF005C5DEC /* stars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stars.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F8EAC7ED233EE3EA005C5DEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F8EAC7E7233EE3EA005C5DEC = {
+			isa = PBXGroup;
+			children = (
+				F8EAC7F2233EE3EA005C5DEC /* NiteFan */,
+				F8EAC7F1233EE3EA005C5DEC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F8EAC7F1233EE3EA005C5DEC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8EAC7F0233EE3EA005C5DEC /* NiteFan.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8EAC7F2233EE3EA005C5DEC /* NiteFan */ = {
+			isa = PBXGroup;
+			children = (
+				F8EAC7F3233EE3EA005C5DEC /* AppDelegate.swift */,
+				F8EAC7F5233EE3EA005C5DEC /* SceneDelegate.swift */,
+				F8EAC7F7233EE3EA005C5DEC /* ViewController.swift */,
+				F8EAC7F9233EE3EA005C5DEC /* Main.storyboard */,
+				F8EAC7FC233EE3EB005C5DEC /* Assets.xcassets */,
+				F8EAC807233EE46A005C5DEC /* supporting files */,
+				F8EAC7FE233EE3EB005C5DEC /* LaunchScreen.storyboard */,
+				F8EAC801233EE3EB005C5DEC /* Info.plist */,
+			);
+			path = NiteFan;
+			sourceTree = "<group>";
+		};
+		F8EAC807233EE46A005C5DEC /* supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				F8EAC80C233EE47E005C5DEC /* 167897__hansende__oscillating-fan-3-hours-of-white-noise.mp3 */,
+				F8A3405F236732DA00AE38D2 /* fan1.mp3 */,
+				F8A340622367394800AE38D2 /* fan2.mp3 */,
+				F8A3405B236731BF00AE38D2 /* fan3.mp3 */,
+				F8A3405D2367324E00AE38D2 /* fan4.mp3 */,
+				F8EAC83A233F0B6A005C5DEC /* click.m4r */,
+				F8EAC83C233F0E1F005C5DEC /* rain.m4r */,
+				F8EAC83E233F0E68005C5DEC /* wobble.m4r */,
+				F8EAC81F233EF9E1005C5DEC /* fan-graphic-1.png */,
+				F8EAC823233EF9E1005C5DEC /* fan-graphic-2.png */,
+				F8EAC822233EF9E1005C5DEC /* fan-graphic-3.png */,
+				F8EAC81E233EF9E1005C5DEC /* fan-graphic-4.png */,
+				F8EAC824233EF9E1005C5DEC /* fan-graphic-5.png */,
+				F8EAC820233EF9E1005C5DEC /* fan-graphic-6.png */,
+				F8EAC821233EF9E1005C5DEC /* fan-graphic-7.png */,
+				F8EAC835233F05A2005C5DEC /* green-click.png */,
+				F8EAC834233F05A2005C5DEC /* green-mute.png */,
+				F8EAC833233F05A2005C5DEC /* green-rain.png */,
+				F8EAC832233F05A2005C5DEC /* green-wobble.png */,
+				F8EAC840233F0FCF005C5DEC /* stars.jpg */,
+			);
+			path = "supporting files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F8EAC7EF233EE3EA005C5DEC /* NiteFan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8EAC804233EE3EB005C5DEC /* Build configuration list for PBXNativeTarget "NiteFan" */;
+			buildPhases = (
+				F8EAC7EC233EE3EA005C5DEC /* Sources */,
+				F8EAC7ED233EE3EA005C5DEC /* Frameworks */,
+				F8EAC7EE233EE3EA005C5DEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NiteFan;
+			productName = NiteFan;
+			productReference = F8EAC7F0233EE3EA005C5DEC /* NiteFan.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F8EAC7E8233EE3EA005C5DEC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1340;
+				ORGANIZATIONNAME = HiTechMom;
+				TargetAttributes = {
+					F8EAC7EF233EE3EA005C5DEC = {
+						CreatedOnToolsVersion = 11.0;
+					};
+				};
+			};
+			buildConfigurationList = F8EAC7EB233EE3EA005C5DEC /* Build configuration list for PBXProject "NiteFan" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F8EAC7E7233EE3EA005C5DEC;
+			productRefGroup = F8EAC7F1233EE3EA005C5DEC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F8EAC7EF233EE3EA005C5DEC /* NiteFan */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F8EAC7EE233EE3EA005C5DEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8EAC83F233F0E68005C5DEC /* wobble.m4r in Resources */,
+				F8EAC83B233F0B6A005C5DEC /* click.m4r in Resources */,
+				F8EAC839233F05A2005C5DEC /* green-click.png in Resources */,
+				F8EAC800233EE3EB005C5DEC /* LaunchScreen.storyboard in Resources */,
+				F8EAC828233EF9E1005C5DEC /* fan-graphic-7.png in Resources */,
+				F8EAC82A233EF9E1005C5DEC /* fan-graphic-2.png in Resources */,
+				F8EAC82B233EF9E1005C5DEC /* fan-graphic-5.png in Resources */,
+				F8EAC827233EF9E1005C5DEC /* fan-graphic-6.png in Resources */,
+				F8A340632367394900AE38D2 /* fan2.mp3 in Resources */,
+				F8EAC837233F05A2005C5DEC /* green-rain.png in Resources */,
+				F8EAC7FD233EE3EB005C5DEC /* Assets.xcassets in Resources */,
+				F8EAC825233EF9E1005C5DEC /* fan-graphic-4.png in Resources */,
+				F8A3405C236731BF00AE38D2 /* fan3.mp3 in Resources */,
+				F8EAC829233EF9E1005C5DEC /* fan-graphic-3.png in Resources */,
+				F8EAC838233F05A2005C5DEC /* green-mute.png in Resources */,
+				F8EAC813233EE47E005C5DEC /* 167897__hansende__oscillating-fan-3-hours-of-white-noise.mp3 in Resources */,
+				F8EAC836233F05A2005C5DEC /* green-wobble.png in Resources */,
+				F8EAC83D233F0E1F005C5DEC /* rain.m4r in Resources */,
+				F8EAC826233EF9E1005C5DEC /* fan-graphic-1.png in Resources */,
+				F8A34060236732DA00AE38D2 /* fan1.mp3 in Resources */,
+				F8EAC841233F0FCF005C5DEC /* stars.jpg in Resources */,
+				F8EAC7FB233EE3EA005C5DEC /* Main.storyboard in Resources */,
+				F8A3405E2367324F00AE38D2 /* fan4.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F8EAC7EC233EE3EA005C5DEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8EAC7F8233EE3EA005C5DEC /* ViewController.swift in Sources */,
+				F8EAC7F4233EE3EA005C5DEC /* AppDelegate.swift in Sources */,
+				F8EAC7F6233EE3EA005C5DEC /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F8EAC7F9233EE3EA005C5DEC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8EAC7FA233EE3EA005C5DEC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F8EAC7FE233EE3EB005C5DEC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8EAC7FF233EE3EB005C5DEC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F8EAC802233EE3EB005C5DEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F8EAC803233EE3EB005C5DEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F8EAC805233EE3EB005C5DEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KYUTBK4JA9;
+				INFOPLIST_FILE = NiteFan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.52;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hitechmom.nitefan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F8EAC806233EE3EB005C5DEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KYUTBK4JA9;
+				INFOPLIST_FILE = NiteFan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.52;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hitechmom.nitefan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F8EAC7EB233EE3EA005C5DEC /* Build configuration list for PBXProject "NiteFan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8EAC802233EE3EB005C5DEC /* Debug */,
+				F8EAC803233EE3EB005C5DEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8EAC804233EE3EB005C5DEC /* Build configuration list for PBXNativeTarget "NiteFan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8EAC805233EE3EB005C5DEC /* Debug */,
+				F8EAC806233EE3EB005C5DEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F8EAC7E8233EE3EA005C5DEC /* Project object */;
+}

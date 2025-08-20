@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NiteFan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hZG-jf-M1r">
+                                <rect key="frame" x="30" y="143" width="150" height="250"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fan-graphic-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="2fW-my-3so">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="170"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUi-Hk-ZdH">
+                                        <rect key="frame" x="0.0" y="170" width="150" height="30"/>
+                                        <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="PdK-Fa-B1S"/>
+                                        </constraints>
+                                        <state key="normal" title="Play Fan 1">
+                                            <color key="titleColor" systemColor="lightTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playFan1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zfX-yf-bbe"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y7c-jM-iq2">
+                                        <rect key="frame" x="0.0" y="200" width="150" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="d7m-bq-xNr"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFx-KB-olu">
+                                        <rect key="frame" x="0.0" y="220" width="150" height="30"/>
+                                        <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="enN-97-GGN"/>
+                                        </constraints>
+                                        <state key="normal" title="Stop Fan 1">
+                                            <color key="titleColor" systemColor="lightTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopFan1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qzR-2n-fUb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="NCj-MG-b6e"/>
+                                    <constraint firstAttribute="width" constant="150" id="Xft-Of-bug"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1FV-hH-bQf">
+                                <rect key="frame" x="234" y="143" width="150" height="250"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fan-graphic-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="hiB-n8-oj2">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="170"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qd2-O5-h7C">
+                                        <rect key="frame" x="0.0" y="170" width="150" height="30"/>
+                                        <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="PxX-tZ-8J8"/>
+                                        </constraints>
+                                        <state key="normal" title="Play Fan2">
+                                            <color key="titleColor" systemColor="lightTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playFan2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fWv-f6-57G"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qq3-ao-NZu">
+                                        <rect key="frame" x="0.0" y="200" width="150" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="n1N-g6-uut"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zO8-Cy-IvJ">
+                                        <rect key="frame" x="0.0" y="220" width="150" height="30"/>
+                                        <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="r2e-Kk-Gs4"/>
+                                        </constraints>
+                                        <state key="normal" title="Stop Fan2">
+                                            <color key="titleColor" systemColor="lightTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopFan2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aIW-lZ-zQs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="9Dr-1P-UYz"/>
+                                    <constraint firstAttribute="height" constant="250" id="was-zX-eDl"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="m0i-uq-5FT">
+                                <rect key="frame" x="30" y="393" width="150" height="250"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fan-graphic-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="duM-i7-NTl">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="170"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LqJ-OK-mZK">
+                                        <rect key="frame" x="0.0" y="170" width="150" height="30"/>
+                                        <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="mjc-5O-udc"/>
+                                        </constraints>
+                                        <state key="normal" title="Play Fan 3">
+                                            <color key="titleColor" systemColor="lightTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playFan3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pdC-Jl-SNv"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vOd-Yx-uS0">
+                                        <rect key="frame" x="0.0" y="200" width="150" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="qLc-TZ-rtH"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmZ-WI-4tX">
+                                        <rect key="frame" x="0.0" y="220" width="150" height="30"/>
+                                        <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="jIN-89-lgJ"/>
+                                        </constraints>
+                                        <state key="normal" title="Stop Fan 3">
+                                            <color key="titleColor" systemColor="lightTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopFan3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0bM-66-MK4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="SvQ-Wz-qyT"/>
+                                    <constraint firstAttribute="width" constant="150" id="hmr-1L-KEv"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WTu-fl-etI">
+                                <rect key="frame" x="234" y="393" width="150" height="250"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fan-graphic-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="gYR-75-RP2">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="170"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mp-BY-2Jq">
+                                        <rect key="frame" x="0.0" y="170" width="150" height="30"/>
+                                        <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="iE3-oc-OGd"/>
+                                        </constraints>
+                                        <state key="normal" title="Play Fan 4">
+                                            <color key="titleColor" systemColor="lightTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playFan4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xoG-7a-cP9"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1FD-qM-pjB">
+                                        <rect key="frame" x="0.0" y="200" width="150" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="dAg-YA-kbe"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4a-Ir-yid">
+                                        <rect key="frame" x="0.0" y="220" width="150" height="30"/>
+                                        <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="kgA-gc-Upy"/>
+                                        </constraints>
+                                        <state key="normal" title="Stop Fan 4">
+                                            <color key="titleColor" systemColor="lightTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopFan4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GTO-w5-Ckk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="4rM-5Y-j9d"/>
+                                    <constraint firstAttribute="height" constant="250" id="XyM-8U-XMW"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="8td-VD-Uz2">
+                                <rect key="frame" x="30" y="762" width="354" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKu-dU-cV7">
+                                        <rect key="frame" x="0.0" y="10.5" width="66" height="39"/>
+                                        <state key="normal" title="Button" image="green-mute.png"/>
+                                        <connections>
+                                            <action selector="muteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uVr-K5-E0p"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho3-a8-h74">
+                                        <rect key="frame" x="96" y="10.5" width="66" height="39"/>
+                                        <state key="normal" title="Button" image="green-click.png"/>
+                                        <connections>
+                                            <action selector="clickButtonPlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sre-eY-4hH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkx-H1-DBd">
+                                        <rect key="frame" x="192" y="10.5" width="66" height="39"/>
+                                        <state key="normal" title="Button" image="green-rain.png"/>
+                                        <connections>
+                                            <action selector="rainButtonPlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9iT-y3-Zv2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSg-pT-ajO">
+                                        <rect key="frame" x="288" y="10.5" width="66" height="39"/>
+                                        <state key="normal" title="Button" image="green-wobble.png"/>
+                                        <connections>
+                                            <action selector="wobbleButtonPlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N27-Ol-Pvd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="TxQ-Ql-VK6"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="m0i-uq-5FT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="GXr-Pa-2fV"/>
+                            <constraint firstItem="8td-VD-Uz2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="RFg-pf-gcD"/>
+                            <constraint firstItem="WTu-fl-etI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="70" id="STh-kb-LXu"/>
+                            <constraint firstItem="hZG-jf-M1r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="X89-3b-JGU"/>
+                            <constraint firstItem="hZG-jf-M1r" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-180" id="amc-cf-qpd"/>
+                            <constraint firstItem="m0i-uq-5FT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="70" id="f1N-hD-MVQ"/>
+                            <constraint firstAttribute="trailing" secondItem="8td-VD-Uz2" secondAttribute="trailing" constant="30" id="gRK-xh-WVz"/>
+                            <constraint firstAttribute="trailing" secondItem="1FV-hH-bQf" secondAttribute="trailing" constant="30" id="rDb-7U-bv7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8td-VD-Uz2" secondAttribute="bottom" constant="40" id="u7o-Hx-vVG"/>
+                            <constraint firstItem="1FV-hH-bQf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-180" id="wjh-Xc-wHS"/>
+                            <constraint firstAttribute="trailing" secondItem="WTu-fl-etI" secondAttribute="trailing" constant="30" id="zSd-ab-Vuy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="clickButton" destination="ho3-a8-h74" id="5jQ-jg-c89"/>
+                        <outlet property="fanButton1" destination="aUi-Hk-ZdH" id="Vbc-sg-TGh"/>
+                        <outlet property="fanButton2" destination="Qd2-O5-h7C" id="Ptt-7U-qyB"/>
+                        <outlet property="fanButton3" destination="LqJ-OK-mZK" id="6iN-AG-A0h"/>
+                        <outlet property="fanButton4" destination="4Mp-BY-2Jq" id="C3z-jG-ZJS"/>
+                        <outlet property="fanStopButton1" destination="iFx-KB-olu" id="0kv-DU-VGp"/>
+                        <outlet property="fanStopButton2" destination="zO8-Cy-IvJ" id="j33-h2-Hgh"/>
+                        <outlet property="fanStopButton3" destination="MmZ-WI-4tX" id="KDe-gO-Kyd"/>
+                        <outlet property="fanStopButton4" destination="G4a-Ir-yid" id="lI1-4y-viR"/>
+                        <outlet property="imageView" destination="2fW-my-3so" id="H0C-Zw-Cxu"/>
+                        <outlet property="imageView2" destination="hiB-n8-oj2" id="ohk-Y3-xFV"/>
+                        <outlet property="imageView3" destination="duM-i7-NTl" id="Hiy-hW-io2"/>
+                        <outlet property="imageView4" destination="gYR-75-RP2" id="Gjg-ap-rRu"/>
+                        <outlet property="muteButton" destination="dKu-dU-cV7" id="CDD-QN-uC4"/>
+                        <outlet property="rainButton" destination="gkx-H1-DBd" id="dtN-Nw-YIX"/>
+                        <outlet property="wobbleButton" destination="uSg-pT-ajO" id="Ffk-Hu-rrd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="92.119565217391312"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="fan-graphic-1.png" width="375" height="375"/>
+        <image name="green-click.png" width="38.880001068115234" height="38.880001068115234"/>
+        <image name="green-mute.png" width="38.880001068115234" height="38.880001068115234"/>
+        <image name="green-rain.png" width="38.880001068115234" height="38.880001068115234"/>
+        <image name="green-wobble.png" width="38.880001068115234" height="38.880001068115234"/>
+        <systemColor name="lightTextColor">
+            <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="scrollViewTexturedBackgroundColor">
+            <color red="0.43529411764705878" green="0.44313725490196082" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
